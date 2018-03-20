@@ -8,6 +8,7 @@
 <body>
 	<div class="container" ng-controller="myController">
 		<input type="text" name="search" ng-model="search">
+		<!--<input type="text" name="search" ng-model="search.fname"> --> <!-- so it will search only to one column but previsouly it was for all the fields-->
 		<table class="table table-striped table-bordered">
 			<thead>
 				<td>ID</td>
@@ -17,12 +18,12 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="user in users | orderBy: 'fname' | filter: search">  <!-- Asc order fname and adding the filter also-->
-					<!--<tr ng-repeat="user in users | orderBy: -fname"> --> <!-- Desc order fname -->
-						<!--<tr ng-repeat="user in users | orderBy: [fname, lname]"> --> <!-- multiple field order -->
+					<!--<tr ng-repeat="user in users | orderBy: '-fname'"> --> <!-- Desc order fname -->
+						<!--<tr ng-repeat="user in users | orderBy: ['fname', 'lname']"> --> <!-- multiple field order -->
 				<!--<tr ng-repeat="user in users | filter: search"> -->
-                    <td>{{user.id}}</td>
-					<td>{{user.fname}}</td>
-					<td>{{user.lname}}</td>
+                    <td>{{user.id | currency}}</td>
+					<td>{{user.fname | uppercase}}</td>
+					<td>{{user.lname | lowercase}}</td>
 					<td>{{user.city}}</td>
 				</tr>
 			</tbody>
