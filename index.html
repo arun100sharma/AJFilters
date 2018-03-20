@@ -16,10 +16,10 @@
 				<td>City</td>
 			</thead>
 			<tbody>
-				<!--<tr ng-repeat="user in users | orderBy: fname"> --> <!-- Asc order fname -->
+				<tr ng-repeat="user in users | orderBy: 'fname' | filter: search">  <!-- Asc order fname and adding the filter also-->
 					<!--<tr ng-repeat="user in users | orderBy: -fname"> --> <!-- Desc order fname -->
 						<!--<tr ng-repeat="user in users | orderBy: [fname, lname]"> --> <!-- multiple field order -->
-				<tr ng-repeat="user in users | filter: search">
+				<!--<tr ng-repeat="user in users | filter: search"> -->
                     <td>{{user.id}}</td>
 					<td>{{user.fname}}</td>
 					<td>{{user.lname}}</td>
